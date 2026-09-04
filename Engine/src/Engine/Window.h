@@ -24,6 +24,7 @@ namespace Engine {
   class Window
   {
     public:
+      Window(const WindowProps& props);
       using EventCallBackFn = std::function<void(Event&)>;
 
       ~Window();

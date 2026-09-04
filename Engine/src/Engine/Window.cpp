@@ -1,5 +1,7 @@
 #include "enginepch.h"
 #include "Window.h"
+#include "Engine/Log.h"
+#include "Engine/Core.h"
 
 namespace Engine {
 
@@ -30,7 +32,7 @@ namespace Engine {
 
     if (!s_GLFWInitialized)
     {
-      int success = glfWinit();
+      int success = glfwInit();
       ENGINE_CORE_ASSERT(success, "Could not initialize GLFW!");
 
       s_GLFWInitialized = true;
