@@ -3,6 +3,8 @@ add_library(Engine STATIC
   src/Engine/Log.cpp
 )
 
+target_precompile_headers(Engine PRIVATE src/enginepch.h)
+
 target_include_directories(Engine
     PUBLIC
         ${CMAKE_CURRENT_SOURCE_DIR}/src

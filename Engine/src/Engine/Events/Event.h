@@ -2,6 +2,7 @@
 
 #include <string>
 #include <functional>
+#include <ostream>
 
 #define BIT(x) (1 << x)
 
