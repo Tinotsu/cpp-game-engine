@@ -4,8 +4,6 @@
 #include <functional>
 #include <ostream>
 
-#define BIT(x) (1 << x)
-
 namespace Engine {
 
   enum class EventType
