@@ -1,6 +1,7 @@
 #include "Engine.h"
 #include "Engine/Application.h"
 #include "Engine/Events/Event.h"
+#include "Engine/ImGui/ImGuiLayer.h"
 
 class ExampleLayer : public Engine::Layer {
 public:
@@ -15,7 +16,10 @@ public:
 
 class Sandbox : public Engine::Application {
 public:
-  Sandbox() { PushLayer(new ExampleLayer()); }
+  Sandbox() {
+    PushLayer(new ExampleLayer());
+    PushOverlay(new Engine::ImGuiLayer(GetWindow()));
+  }
 
   ~Sandbox() {}
 };

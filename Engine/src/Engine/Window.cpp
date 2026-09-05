@@ -1,10 +1,10 @@
+#include <glad/glad.h>
 #include "Window.h"
 #include "Engine/Core.h"
 #include "Engine/Events/ApplicationEvent.h"
 #include "Engine/Events/KeyEvent.h"
 #include "Engine/Events/MouseEvent.h"
 #include "Engine/Log.h"
-#include "GLFW/glfw3.h"
 
 namespace Engine {
 
@@ -15,6 +15,8 @@ static void GLFWErrorCallback(int error, const char *description) {
 }
 
 Window *Window::Create(const WindowProps &props) { return new Window(props); }
+
+GLFWwindow *Window::GetNativeWindow() const { return m_Window; }
 
 Window::Window(const WindowProps &props) { Init(props); }
 
@@ -36,9 +38,16 @@ void Window::Init(const WindowProps &props) {
     s_GLFWInitialized = true;
   }
 
+  glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
+  glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 1);
+  glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+  glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
+
   m_Window = glfwCreateWindow((int)props.Width, (int)props.Height,
                               m_Data.Title.c_str(), nullptr, nullptr);
   glfwMakeContextCurrent(m_Window);
+  int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
+  ENGINE_CORE_ASSERT(status, "Failed to initialize Glad !")
   glfwSetWindowUserPointer(m_Window, &m_Data);
   SetVSync(true);
 
