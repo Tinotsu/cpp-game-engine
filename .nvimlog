@@ -1,0 +1,3 @@
+WRN 2026-09-05T11:43:33.364 ?.3345     server_start:199: Failed to start server: operation not permitted: /var/folders/jp/xx366t8s7jl789hcgs44jthc0000gn/T/nvim.tinopianfetti/tMlrH2/nvim.3345.0
+WRN 2026-09-05T11:52:27.534 ?.9548     server_start:199: Failed to start server: operation not permitted: /var/folders/jp/xx366t8s7jl789hcgs44jthc0000gn/T/nvim.tinopianfetti/3mTNiZ/nvim.9548.0
+WRN 2026-09-05T11:52:51.393 ?.9643     server_start:199: Failed to start server: operation not permitted: /var/folders/jp/xx366t8s7jl789hcgs44jthc0000gn/T/nvim.tinopianfetti/y3cb8p/nvim.9643.0
