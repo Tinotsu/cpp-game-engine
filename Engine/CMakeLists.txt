@@ -2,6 +2,7 @@ add_library(Engine STATIC
   src/Engine/Application.cpp
   src/Engine/Log.cpp
   src/Engine/Window.cpp
+  src/Engine/Input.cpp
   src/Engine/Layer.cpp
   src/Engine/LayerStack.cpp
   src/Engine/ImGui/ImGuiLayer.cpp

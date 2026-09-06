@@ -4,6 +4,7 @@
 #include "Engine/Layer.h"
 #include "Engine/LayerStack.h"
 #include "Events/Event.h"
+#include "Input.h"
 #include "Window.h"
 
 namespace Engine {
@@ -24,6 +25,7 @@ public:
 private:
   bool OnWindowClosed(WindowCloseEvent &e);
   std::unique_ptr<Window> m_Window;
+  std::unique_ptr<Input> m_Input;
   bool m_Running = true;
   LayerStack m_LayerStack;
 };
