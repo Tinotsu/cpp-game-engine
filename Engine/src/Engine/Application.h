@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Engine/Events/ApplicationEvent.h"
+#include "Engine/ImGui/ImGuiLayer.h"
 #include "Engine/Layer.h"
 #include "Engine/LayerStack.h"
 #include "Events/Event.h"
@@ -25,6 +26,7 @@ public:
 private:
   bool OnWindowClosed(WindowCloseEvent &e);
   std::unique_ptr<Window> m_Window;
+  ImGuiLayer *m_ImGuiLayer;
   std::unique_ptr<Input> m_Input;
   bool m_Running = true;
   LayerStack m_LayerStack;

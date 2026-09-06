@@ -10,6 +10,9 @@ Engine::Application::Application() {
   m_Window->SetEventCallBack(BIND_EVENT_FN(OnEvent));
 
   m_Input = std::unique_ptr<Input>(new Input(*m_Window));
+
+  m_ImGuiLayer = new ImGuiLayer(*m_Window);
+  PushOverlay(m_ImGuiLayer);
 }
 
 Engine::Application::~Application() {}
@@ -41,6 +44,10 @@ void Engine::Application::Run() {
 
     for (Layer *layer : m_LayerStack)
       layer->OnUpdate();
+
+    m_ImGuiLayer->Begin();
+    m_ImGuiLayer->OnImGuiRender();
+    m_ImGuiLayer->End();
 
     auto [x, y] = m_Input->GetMousePosition();
     // ENGINE_CORE_TRACE("{0}, {1}", x, y);

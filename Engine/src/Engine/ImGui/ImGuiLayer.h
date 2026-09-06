@@ -10,10 +10,10 @@ public:
   ImGuiLayer(Window &window);
   ~ImGuiLayer();
 
-  void OnAttach();
-  void OnDettach();
-  void OnUpdate();
-  void OnEvent(Event &event);
+  virtual void OnAttach() override;
+  void OnImGuiRender();
+  void Begin();
+  void End();
 
 private:
   Window &m_Window;

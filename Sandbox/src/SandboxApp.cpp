@@ -20,10 +20,7 @@ public:
 
 class Sandbox : public Engine::Application {
 public:
-  Sandbox() {
-    PushLayer(new ExampleLayer());
-    PushOverlay(new Engine::ImGuiLayer(GetWindow()));
-  }
+  Sandbox() { PushLayer(new ExampleLayer()); }
 
   ~Sandbox() {}
 };
