@@ -23,6 +23,7 @@ target_include_directories(Engine
         ${CMAKE_CURRENT_SOURCE_DIR}/src
         ${CMAKE_CURRENT_SOURCE_DIR}/vendor/glad/include
         ${CMAKE_CURRENT_SOURCE_DIR}/vendor/imgui
+        ${CMAKE_CURRENT_SOURCE_DIR}/vendor/glm
 )
 
 add_subdirectory(vendor/glfw)
