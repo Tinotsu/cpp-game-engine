@@ -25,7 +25,7 @@ void Engine::Application::PushOverlay(Layer *layer) {
 void Engine::Application::OnEvent(Event &e) {
   EventDispatcher dispatcher(e);
   dispatcher.Dispatch<WindowCloseEvent>(BIND_EVENT_FN(OnWindowClosed));
-  ENGINE_CORE_INFO("{0}", e.ToString());
+  // ENGINE_CORE_INFO("{0}", e.ToString());
 
   for (auto it = m_LayerStack.end(); it != m_LayerStack.begin();) {
     (*--it)->OnEvent(e);
@@ -43,7 +43,7 @@ void Engine::Application::Run() {
       layer->OnUpdate();
 
     auto [x, y] = m_Input->GetMousePosition();
-    ENGINE_CORE_TRACE("{0}, {1}", x, y);
+    // ENGINE_CORE_TRACE("{0}, {1}", x, y);
 
     m_Window->OnUpdate();
   };

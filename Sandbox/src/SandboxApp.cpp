@@ -1,16 +1,20 @@
 #include "Engine.h"
 #include "Engine/Application.h"
 #include "Engine/Events/Event.h"
+#include "Engine/Events/KeyEvent.h"
 #include "Engine/ImGui/ImGuiLayer.h"
 
 class ExampleLayer : public Engine::Layer {
 public:
   ExampleLayer() : Layer("Example") {}
 
-  void OnUpdate() override { ENGINE_INFO("ExampleLayer::Update"); }
+  // void OnUpdate() override { ENGINE_INFO("ExampleLayer::Update"); }
 
   void OnEvent(Engine::Event &event) override {
-    ENGINE_TRACE("{0}", event.ToString());
+    if (event.GetEventType() == Engine::EventType::KeyPressed) {
+      auto &e = static_cast<Engine::KeyPressedEvent &>(event);
+      ENGINE_TRACE("{0}", static_cast<char>(e.GetKeyCode()));
+    }
   }
 };
 
